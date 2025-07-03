@@ -42,4 +42,14 @@ public class PaiementController {
     public Paiement getById(@PathVariable Long id) {
         return service.getById(id);
     }
+
+    @GetMapping("/client/{codeClient}")
+    public List<Paiement> getByCodeClient(@PathVariable String codeClient) {
+        return service.getByCodeClient(codeClient);
+    }
+
+    @GetMapping("/facture/{numeroFacture}")
+    public List<Paiement> getByNumeroFacture(@PathVariable String numeroFacture) {
+        return service.getByNumeroFacture(numeroFacture);
+    }
 }

@@ -18,8 +18,8 @@ public class PaiementService {
 
     // Exemple avec RestTemplate (tu peux aussi injecter les vrais repos client/facture si dispo localement)
     private final RestTemplate restTemplate = new RestTemplate();
-    private static final String CLIENT_API_URL = "http://localhost:8080/api/clients/";
-    private static final String FACTURE_API_URL = "http://localhost:8080/api/factures/";
+    private static final String CLIENT_API_URL = "http://localhost:8081/api/clients/";
+    private static final String FACTURE_API_URL = "http://localhost:8082/api/factures/";
 
     public Paiement create(Paiement paiement) {
         if (!clientExiste(paiement.getCodeClient())) {

@@ -24,11 +24,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency> -->
-		<dependency>
-			<groupId>com.ace3i</groupId>
-			<artifactId>ace3i-common-config</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+
 
 	</dependencies>
 

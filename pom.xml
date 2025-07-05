@@ -26,7 +26,6 @@
 		<module>ace3i-facture</module>
 		<module>ace3i-paiement</module>
 		<module>ace3i-synchronisation</module>
-		<module>ace3i-common-config</module>
 	</modules>
 
 	<properties>

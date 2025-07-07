@@ -1,7 +1,7 @@
 package com.ace3i.ace3i_facture.controller;
 
 import com.ace3i.ace3i_facture.model.Facture;
-import com.ace3i.ace3i_facture.service.FactureService;
+import com.ace3i.ace3i_facture.service.IFactureService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class FactureController {
 
-    private final FactureService service;
+    private final IFactureService service;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

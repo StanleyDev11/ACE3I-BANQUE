@@ -1,7 +1,7 @@
 package com.ace3i.ace3i_paiement.controller;
 
 import com.ace3i.ace3i_paiement.model.Paiement;
-import com.ace3i.ace3i_paiement.service.PaiementService;
+import com.ace3i.ace3i_paiement.service.PaiementServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PaiementController {
 
-    private final PaiementService service;
+    private final PaiementServiceImpl service;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

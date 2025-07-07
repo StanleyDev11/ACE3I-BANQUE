@@ -1,7 +1,7 @@
 package com.ace3i.ace3i_client.controller;
 
 import com.ace3i.ace3i_client.model.Client;
-import com.ace3i.ace3i_client.service.ClientService;
+import com.ace3i.ace3i_client.service.IClientService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClientController {
 
-    private final ClientService service;
+    private final IClientService service;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

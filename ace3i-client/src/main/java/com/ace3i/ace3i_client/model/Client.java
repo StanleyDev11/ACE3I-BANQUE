@@ -5,7 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Entity
-@Table(name = "clients")
+@Table(name = "EPCLI") // Table selon convention ACE3i
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,21 +13,23 @@ import lombok.*;
 public class Client {
 
     @Id
-    @Column(length = 6, unique = true, nullable = false)
+    @Column(name = "CLICOD", length = 6, nullable = false, unique = true)
     @Size(min = 6, max = 6, message = "Le code client doit contenir exactement 6 caractères.")
     private String codeClient;
 
+    @Column(name = "CLINOM")
     @NotBlank(message = "Le nom est obligatoire.")
     private String nom;
 
+    @Column(name = "CLIPRE")
     @NotBlank(message = "Le prénom est obligatoire.")
     private String prenom;
 
-    @Column(length = 18, nullable = false, unique = true)
+    @Column(name = "CLINUM", length = 18, nullable = false, unique = true)
     @Size(min = 18, max = 18, message = "Le numéro de compte doit contenir exactement 18 chiffres.")
     private String numeroCompte;
 
+    @Column(name = "CLISOL")
     @PositiveOrZero(message = "Le solde doit être positif ou nul.")
     private double solde;
-
 }

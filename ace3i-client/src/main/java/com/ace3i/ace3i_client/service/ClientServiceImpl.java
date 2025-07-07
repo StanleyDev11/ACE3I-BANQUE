@@ -11,10 +11,11 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ClientService {
+public class ClientServiceImpl implements IClientService {
 
     private final ClientRepository repository;
 
+    @Override
     public Client create(Client client) {
         if (repository.existsById(client.getCodeClient())) {
             throw new ValidationException("Le code client existe déjà.");
@@ -25,11 +26,11 @@ public class ClientService {
         return repository.save(client);
     }
 
+    @Override
     public Client update(String codeClient, Client updated) {
         Client client = repository.findById(codeClient)
                 .orElseThrow(() -> new ClientNotFoundException("Client introuvable"));
 
-        // Vérification du numéro de compte unique sauf pour ce client
         if (repository.existsByNumeroCompteAndCodeClientNot(updated.getNumeroCompte(), codeClient)) {
             throw new IllegalArgumentException("Le numéro de compte est déjà utilisé par un autre client.");
         }
@@ -42,6 +43,7 @@ public class ClientService {
         return repository.save(client);
     }
 
+    @Override
     public void delete(String codeClient) {
         if (!repository.existsById(codeClient)) {
             throw new ClientNotFoundException("Client introuvable");
@@ -49,10 +51,12 @@ public class ClientService {
         repository.deleteById(codeClient);
     }
 
+    @Override
     public List<Client> getAll() {
         return repository.findAll();
     }
 
+    @Override
     public Client getById(String codeClient) {
         return repository.findById(codeClient)
                 .orElseThrow(() -> new ClientNotFoundException("Client introuvable"));

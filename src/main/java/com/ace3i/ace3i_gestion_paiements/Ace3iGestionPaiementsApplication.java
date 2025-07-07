@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 		"com.ace3i.ace3i_client",
 		"com.ace3i.ace3i_facture",
 		"com.ace3i.ace3i_paiement"
+
 })
 public class Ace3iGestionPaiementsApplication {
 

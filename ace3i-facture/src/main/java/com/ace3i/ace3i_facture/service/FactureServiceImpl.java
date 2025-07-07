@@ -11,10 +11,11 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class FactureService {
+public class FactureServiceImpl implements IFactureService {
 
     private final FactureRepository repository;
 
+    @Override
     public Facture create(Facture facture) {
         if (repository.existsByReference(facture.getReference())) {
             throw new ValidationException("La référence de la facture existe déjà.");
@@ -22,9 +23,10 @@ public class FactureService {
         return repository.save(facture);
     }
 
+    @Override
     public Facture update(String reference, Facture updated) {
         Facture facture = repository.findById(reference)
-                .orElseThrow(() -> new FactureNotFoundException("Facture introuvable"));
+                .orElseThrow(() -> new FactureNotFoundException("Facture avec la référence " + reference + " introuvable."));
 
         facture.setDescription(updated.getDescription());
         facture.setMontant(updated.getMontant());
@@ -33,19 +35,22 @@ public class FactureService {
         return repository.save(facture);
     }
 
+    @Override
     public void delete(String reference) {
         if (!repository.existsById(reference)) {
-            throw new FactureNotFoundException("Facture introuvable");
+            throw new FactureNotFoundException("Facture avec la référence " + reference + " introuvable.");
         }
         repository.deleteById(reference);
     }
 
+    @Override
     public List<Facture> getAll() {
         return repository.findAll();
     }
 
+    @Override
     public Facture getById(String reference) {
         return repository.findById(reference)
-                .orElseThrow(() -> new FactureNotFoundException("Facture introuvable"));
+                .orElseThrow(() -> new FactureNotFoundException("Facture avec la référence " + reference + " introuvable."));
     }
 }

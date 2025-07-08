@@ -1,0 +1,17 @@
+CREATE OR REPLACE PROCEDURE sync_paiement (
+    p_code_client     IN VARCHAR2,
+    p_montant         IN NUMBER,
+    p_numero_facture  IN VARCHAR2,
+    p_date_paiement   IN DATE,
+    p_mode_paiement   IN VARCHAR2
+)
+IS
+BEGIN
+    INSERT INTO paiements_oracle (
+        code_client, montant, numero_facture, date_paiement, mode_paiement
+    ) VALUES (
+        p_code_client, p_montant, p_numero_facture, p_date_paiement, p_mode_paiement
+    );
+
+    COMMIT;
+END;

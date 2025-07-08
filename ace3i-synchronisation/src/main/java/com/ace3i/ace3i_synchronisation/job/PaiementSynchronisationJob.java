@@ -20,10 +20,10 @@ public class PaiementSynchronisationJob {
 
     @Scheduled(fixedRate = 60000) // toutes les 60 secondes
     public void synchroniser() {
-        // 🔁 Appel de ton API Paiement (PostgreSQL)
+        //  Appel de ton API Paiement (PostgreSQL)
         List<Paiement> paiements = restTemplate.getForObject("http://localhost:8083/api/paiements", List.class);
 
-        // 🔄 Synchroniser chaque paiement
+        //  Synchroniser chaque paiement
         for (Paiement p : paiements) {
             synchronisationService.synchroniserPaiement(p);
         }

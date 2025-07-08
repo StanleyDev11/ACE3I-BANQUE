@@ -22,31 +22,32 @@ public class FactureServiceImpl implements IFactureService {
         }
         return repository.save(facture);
     }
+    /*
+       @Override
+       public Facture update(String reference, Facture updated) {
+           Facture facture = repository.findById(reference)
+                   .orElseThrow(() -> new FactureNotFoundException("Facture avec la référence " + reference + " introuvable."));
 
-    @Override
-    public Facture update(String reference, Facture updated) {
-        Facture facture = repository.findById(reference)
-                .orElseThrow(() -> new FactureNotFoundException("Facture avec la référence " + reference + " introuvable."));
+           facture.setDescription(updated.getDescription());
+           facture.setMontant(updated.getMontant());
+           facture.setFacturier(updated.getFacturier());
 
-        facture.setDescription(updated.getDescription());
-        facture.setMontant(updated.getMontant());
-        facture.setFacturier(updated.getFacturier());
+           return repository.save(facture);
+       }
 
-        return repository.save(facture);
-    }
 
-    @Override
-    public void delete(String reference) {
-        if (!repository.existsById(reference)) {
-            throw new FactureNotFoundException("Facture avec la référence " + reference + " introuvable.");
-        }
-        repository.deleteById(reference);
-    }
-
-    @Override
-    public List<Facture> getAll() {
-        return repository.findAll();
-    }
+       @Override
+       public void delete(String reference) {
+           if (!repository.existsById(reference)) {
+               throw new FactureNotFoundException("Facture avec la référence " + reference + " introuvable.");
+           }
+           repository.deleteById(reference);
+       }
+ */
+       @Override
+       public List<Facture> getAll() {
+           return repository.findAll();
+       }
 
     @Override
     public Facture getById(String reference) {

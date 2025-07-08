@@ -21,7 +21,7 @@ public class FactureController {
     public Facture create(@Valid @RequestBody Facture facture) {
         return service.create(facture);
     }
-
+    /*
     @PutMapping("/{reference}")
     public Facture update(@PathVariable String reference, @Valid @RequestBody Facture facture) {
         return service.update(reference, facture);
@@ -32,7 +32,7 @@ public class FactureController {
     public void delete(@PathVariable String reference) {
         service.delete(reference);
     }
-
+*/
     @GetMapping
     public List<Facture> getAll() {
         return service.getAll();

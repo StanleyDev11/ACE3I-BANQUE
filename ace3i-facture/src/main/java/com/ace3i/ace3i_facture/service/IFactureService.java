@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IFactureService {
     Facture create(Facture facture);
-    Facture update(String reference, Facture updated);
-    void delete(String reference);
-    List<Facture> getAll();
+   // Facture update(String reference, Facture updated);
+  //  void delete(String reference);
+   List<Facture> getAll();
     Facture getById(String reference);
 }

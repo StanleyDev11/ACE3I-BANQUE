@@ -31,6 +31,11 @@ public class PaiementServiceImpl implements IPaiementService {
             throw new ValidationException("La facture n'existe pas.");
         }
 
+        //  Vérification : la facture a-t-elle déjà été payée ?
+        if (!repository.findByNumeroFacture(paiement.getNumeroFacture()).isEmpty()) {
+            throw new ValidationException("Cette facture a déjà été payée.");
+        }
+
         return repository.save(paiement);
     }
 
